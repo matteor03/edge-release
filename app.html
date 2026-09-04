@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EdgeRelease Prototype</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="app-body">
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand app-brand" href="index.html"><span class="brand-mark">ER</span><span>EdgeRelease</span></a>
+      <div class="side-section"><small>PROJECT</small><div class="project-pill"><span>ASM</span><div><b>MACHINE_2547</b><em>Rev C · 186 items</em></div></div></div>
+      <nav class="side-nav">
+        <button class="active" data-view="overview"><span>◫</span>Preflight</button>
+        <button data-view="issues"><span>⚠</span>Issues <i>6</i></button>
+        <button data-view="release"><span>⇩</span>Release pack</button>
+        <button data-view="rules"><span>⌘</span>Rules</button>
+      </nav>
+      <div class="privacy-card"><b>Local processing</b><p>CAD files never leave this workstation.</p><span>Offline mode · Active</span></div>
+    </aside>
+
+    <main class="workspace">
+      <header class="app-topbar">
+        <div><small>ACTIVE ASSEMBLY</small><h1>MACHINE_2547.asm</h1></div>
+        <div class="top-actions"><button class="btn btn-secondary btn-small" id="rescanBtn">Run preflight</button><button class="btn btn-primary btn-small" id="releaseBtn" disabled>Generate release</button></div>
+      </header>
+
+      <section class="view active" id="view-overview">
+        <div class="summary-grid">
+          <article class="score-card">
+            <div class="muted-label">RELEASE READINESS</div>
+            <div class="big-score" id="bigScore">89<span>%</span></div>
+            <div class="meter"><div id="meterFill" style="width:89%"></div></div>
+            <p id="readinessText">3 blocking issues must be resolved before release.</p>
+          </article>
+          <article class="stat-card"><span>BLOCKING</span><strong id="blockingCount">3</strong><em>Must fix</em></article>
+          <article class="stat-card"><span>WARNINGS</span><strong id="warningCount">3</strong><em>Review recommended</em></article>
+          <article class="stat-card"><span>PASSED</span><strong>392</strong><em>Checks passed</em></article>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head"><div><h2>Preflight checks</h2><p>Manufacturing release rules for the active assembly.</p></div><span class="last-run" id="lastRun">Last scan · 09:42</span></div>
+          <div class="qa-table" id="qaTable">
+            <div class="qa-row" data-type="drawing" data-state="bad"><div class="status-icon bad">×</div><div><b>Missing drawings</b><span>Components requiring Draft documentation</span></div><strong>2 issues</strong><button data-action="inspect">Inspect</button></div>
+            <div class="qa-row" data-type="views" data-state="ok"><div class="status-icon ok">✓</div><div><b>Drawing views current</b><span>Model-linked views checked against latest geometry</span></div><strong>73 / 73</strong><button data-action="inspect">Details</button></div>
+            <div class="qa-row" data-type="flat" data-state="warn"><div class="status-icon warn">!</div><div><b>Flat pattern readiness</b><span>Sheet-metal parts ready for DXF publishing</span></div><strong>3 warnings</strong><button data-action="inspect">Inspect</button></div>
+            <div class="qa-row" data-type="props" data-state="ok"><div class="status-icon ok">✓</div><div><b>Required properties</b><span>Part Number, Description, Material</span></div><strong>186 / 186</strong><button data-action="inspect">Details</button></div>
+            <div class="qa-row" data-type="revision" data-state="bad"><div class="status-icon bad">×</div><div><b>Revision consistency</b><span>Model, Draft and release naming alignment</span></div><strong>1 mismatch</strong><button data-action="inspect">Inspect</button></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="view" id="view-issues">
+        <div class="panel">
+          <div class="panel-head"><div><h2>Open issues</h2><p>Blocking errors and warnings found during preflight.</p></div><button class="btn btn-secondary btn-small" id="fixAllBtn">Simulate fixes</button></div>
+          <div class="issues-list" id="issuesList">
+            <article class="issue blocking"><span>BLOCKING</span><div><b>BRACKET_1042.psm — missing drawing</b><p>No associated .dft was found for a manufactured sheet-metal part.</p></div><button>Open file</button></article>
+            <article class="issue blocking"><span>BLOCKING</span><div><b>GUARD_2047.psm — missing drawing</b><p>No associated .dft was found for a manufactured sheet-metal part.</p></div><button>Open file</button></article>
+            <article class="issue blocking"><span>BLOCKING</span><div><b>BASEFRAME_001.par — revision mismatch</b><p>Model revision C does not match drawing revision B.</p></div><button>Compare</button></article>
+            <article class="issue warning"><span>WARNING</span><div><b>COVER_311.psm — flat pattern may be stale</b><p>Part geometry was modified after the current flat pattern was generated.</p></div><button>Open flat</button></article>
+            <article class="issue warning"><span>WARNING</span><div><b>PLATE_122.psm — bend layer rule</b><p>DXF profile contains a bend-line layer that is excluded by the active release rule.</p></div><button>Review</button></article>
+            <article class="issue warning"><span>WARNING</span><div><b>DOOR_018.psm — flat pattern orientation</b><p>Orientation differs from the preferred company release rule.</p></div><button>Review</button></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="view" id="view-release">
+        <div class="panel release-panel">
+          <div class="panel-head"><div><h2>Manufacturing release pack</h2><p>Outputs generated only after blocking preflight checks pass.</p></div></div>
+          <div class="release-tree">
+            <div class="folder root">▾ MACHINE_2547_REV_C</div>
+            <div class="folder">📁 01_PDF <em>73 drawings</em></div>
+            <div class="folder">📁 02_DXF <em>42 flat patterns</em></div>
+            <div class="folder">📁 03_STEP <em>31 vendor / machined parts</em></div>
+            <div class="folder">📁 04_BOM <em>MACHINE_2547_BOM.xlsx</em></div>
+            <div class="folder">📁 05_RELEASE_REPORT <em>Release manifest + QA result</em></div>
+          </div>
+          <div class="release-options">
+            <label><input type="checkbox" checked> Include PDFs</label>
+            <label><input type="checkbox" checked> Include sheet-metal DXFs</label>
+            <label><input type="checkbox" checked> Include STEPs</label>
+            <label><input type="checkbox" checked> Include BOM snapshot</label>
+            <label><input type="checkbox" checked> Include release report</label>
+          </div>
+          <button class="btn btn-primary" id="releaseBigBtn" disabled>Resolve blocking issues to generate</button>
+        </div>
+      </section>
+
+      <section class="view" id="view-rules">
+        <div class="panel">
+          <div class="panel-head"><div><h2>Company rules</h2><p>Prototype of configurable release requirements.</p></div><span class="tag">Beta roadmap</span></div>
+          <div class="rules-grid">
+            <article><b>Required properties</b><p>Part Number · Description · Material · Revision</p><button>Edit</button></article>
+            <article><b>Drawing requirement</b><p>Manufactured parts require an associated .dft</p><button>Edit</button></article>
+            <article><b>Release naming</b><p>{PartNumber}_{Revision}.{ext}</p><button>Edit</button></article>
+            <article><b>Sheet-metal DXF</b><p>Remove bend layer · Use flat pattern · mm units</p><button>Edit</button></article>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
