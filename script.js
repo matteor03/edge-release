@@ -24,8 +24,9 @@ function capture(event,properties={}){
   const payload={
     api_key:POSTHOG_TOKEN,
     event,
-    distinct_id:edgeReleaseDistinctId(),
     properties:{
+      distinct_id:edgeReleaseDistinctId(),
+      $process_person_profile:false,
       $current_url:location.href,
       $referrer:document.referrer||undefined,
       page:'landing',
