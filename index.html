@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EdgeRelease — Solid Edge Release QA</title>
+  <meta name="description" content="Preflight your Solid Edge project before it reaches production. Catch missing drawings, stale views, flat pattern issues and revision mismatches, then generate a clean manufacturing release pack." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="nav shell">
+    <a class="brand" href="#top" aria-label="EdgeRelease home">
+      <span class="brand-mark">ER</span>
+      <span>EdgeRelease</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="#problem">Why</a>
+      <a href="#checks">Checks</a>
+      <a href="#demo">Demo</a>
+      <a href="#pricing">Beta</a>
+    </nav>
+    <a class="btn btn-small btn-ghost" href="app.html">Open prototype</a>
+  </header>
+
+  <main id="top">
+    <section class="hero shell">
+      <div class="hero-copy">
+        <div class="eyebrow">SOLID EDGE RELEASE QA · LOCAL-FIRST</div>
+        <h1>Know your project is ready <span>before production does.</span></h1>
+        <p class="hero-lede">EdgeRelease checks drawings, revisions, sheet-metal flat patterns and critical properties before you publish. Then it builds a clean PDF / DXF / STEP / BOM release pack in one flow.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="app.html">Try the interactive prototype</a>
+          <a class="btn btn-secondary" href="#pricing">Join the beta</a>
+        </div>
+        <div class="trust-row">
+          <span><i></i> Runs on your workstation</span>
+          <span><i></i> CAD files stay local</span>
+          <span><i></i> Built for engineering teams</span>
+        </div>
+      </div>
+
+      <div class="hero-card" aria-label="Release readiness preview">
+        <div class="window-bar"><span></span><span></span><span></span><small>Machine_2547.asm</small></div>
+        <div class="readiness-top">
+          <div>
+            <div class="muted-label">RELEASE READINESS</div>
+            <div class="score">89<span>%</span></div>
+          </div>
+          <div class="gauge"><div class="gauge-fill"></div></div>
+        </div>
+        <div class="check-list compact">
+          <div class="check ok"><b>✓</b><span>Assembly references</span><em>186 passed</em></div>
+          <div class="check bad"><b>×</b><span>Missing drawings</span><em>2 blocking</em></div>
+          <div class="check warn"><b>!</b><span>Flat pattern readiness</span><em>3 warnings</em></div>
+          <div class="check ok"><b>✓</b><span>Required properties</span><em>All present</em></div>
+          <div class="check bad"><b>×</b><span>Revision consistency</span><em>1 mismatch</em></div>
+        </div>
+        <button class="fake-action">Resolve 3 blocking issues</button>
+      </div>
+    </section>
+
+    <section id="problem" class="section section-dark">
+      <div class="shell split">
+        <div>
+          <div class="eyebrow">THE PROBLEM</div>
+          <h2>Export automation saves clicks. Release QA prevents expensive mistakes.</h2>
+        </div>
+        <div class="problem-copy">
+          <p>A PDF existing does not mean the drawing is current. A DXF existing does not mean the flat pattern is valid. A BOM existing does not mean the metadata is complete.</p>
+          <p>EdgeRelease is designed around one question: <strong>“Is this assembly genuinely ready to hand to manufacturing?”</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="checks" class="section shell">
+      <div class="section-head">
+        <div class="eyebrow">V1 PRE-FLIGHT</div>
+        <h2>Five checks worth paying for.</h2>
+        <p>Focused on failure modes that create rework, scrap, production delays or embarrassing supplier calls.</p>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card"><span>01</span><h3>Missing drawing</h3><p>Flags components that require a drawing but have no associated Draft before release.</p></article>
+        <article class="feature-card"><span>02</span><h3>Out-of-date views</h3><p>Detects drawings whose model views are stale before they become released PDFs.</p></article>
+        <article class="feature-card"><span>03</span><h3>Flat pattern readiness</h3><p>Checks sheet-metal parts for usable, current flat patterns before DXF generation.</p></article>
+        <article class="feature-card"><span>04</span><h3>Required properties</h3><p>Validates Part Number, Description, Material and company-defined mandatory fields.</p></article>
+        <article class="feature-card"><span>05</span><h3>Revision consistency</h3><p>Finds mismatches between model, drawing and release naming before files leave engineering.</p></article>
+        <article class="feature-card feature-card-accent"><span>→</span><h3>Then release</h3><p>Generate PDFs, DXFs, STEPs, BOM and a release report into one structured package.</p></article>
+      </div>
+    </section>
+
+    <section id="demo" class="section demo-section">
+      <div class="shell">
+        <div class="section-head center">
+          <div class="eyebrow">PRODUCT FLOW</div>
+          <h2>Check first. Release second.</h2>
+          <p>No cloud upload. No heavyweight PLM project. One clear preflight before manufacturing handoff.</p>
+        </div>
+        <div class="flow">
+          <div class="flow-step"><strong>1</strong><div><b>Open assembly</b><span>EdgeRelease reads the active Solid Edge project.</span></div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step"><strong>2</strong><div><b>Run preflight</b><span>Rules scan drawings, sheet metal, properties and revisions.</span></div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step"><strong>3</strong><div><b>Fix blockers</b><span>Jump straight to the files that need attention.</span></div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step"><strong>4</strong><div><b>Generate release</b><span>Publish the complete manufacturing package.</span></div></div>
+        </div>
+        <div class="demo-cta"><a class="btn btn-primary" href="app.html">Open interactive product mockup</a></div>
+      </div>
+    </section>
+
+    <section class="section shell comparison">
+      <div class="section-head"><div class="eyebrow">POSITIONING</div><h2>Not another batch exporter.</h2></div>
+      <div class="compare-wrap">
+        <table>
+          <thead><tr><th></th><th>Typical export macro</th><th>EdgeRelease</th></tr></thead>
+          <tbody>
+            <tr><td>Batch PDF / DXF / STEP</td><td>Yes</td><td>Yes</td></tr>
+            <tr><td>Missing drawing detection</td><td>Rarely</td><td>Yes</td></tr>
+            <tr><td>Out-of-date drawing checks</td><td>No</td><td>Yes</td></tr>
+            <tr><td>Flat pattern preflight</td><td>Sometimes</td><td>Yes</td></tr>
+            <tr><td>Revision consistency</td><td>No</td><td>Yes</td></tr>
+            <tr><td>Release manifest / audit report</td><td>No</td><td>Yes</td></tr>
+            <tr><td>Core promise</td><td>Save clicks</td><td><strong>Release with confidence</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="pricing" class="section beta-section">
+      <div class="shell beta-grid">
+        <div>
+          <div class="eyebrow">FOUNDING BETA</div>
+          <h2>Help shape EdgeRelease around real Solid Edge workflows.</h2>
+          <p>We are looking for a small group of mechanical design teams using Solid Edge in real production environments. Beta users influence the checks, release rules and workflow before launch.</p>
+          <ul class="beta-list">
+            <li>✓ Local-only CAD processing</li>
+            <li>✓ Early access to release QA features</li>
+            <li>✓ Direct influence on company-rule configuration</li>
+            <li>✓ Founding-user pricing when the product launches</li>
+          </ul>
+        </div>
+        <form class="beta-card" id="betaForm">
+          <h3>Join the beta list</h3>
+          <label>Name<input required name="name" placeholder="Your name" /></label>
+          <label>Work email<input required type="email" name="email" placeholder="you@company.com" /></label>
+          <label>Team size<select name="team"><option>1–2 designers</option><option>3–10 designers</option><option>11–30 designers</option><option>31+ designers</option></select></label>
+          <label>Biggest release pain<textarea name="pain" placeholder="What still takes too much manual checking before manufacturing?"></textarea></label>
+          <button class="btn btn-primary full" type="submit">Request beta access</button>
+          <div class="form-note" id="formNote">Prototype form — no data is transmitted yet.</div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer shell">
+    <div class="brand"><span class="brand-mark">ER</span><span>EdgeRelease</span></div>
+    <span>Solid Edge manufacturing release QA · Concept prototype</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
