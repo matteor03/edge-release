@@ -19,7 +19,7 @@
       <a href="#demo">Demo</a>
       <a href="#pricing">Beta</a>
     </nav>
-    <a class="btn btn-small btn-ghost" href="app.html">Open prototype</a>
+    <a class="btn btn-small btn-ghost prototype-link" href="app.html">Open prototype</a>
   </header>
 
   <main id="top">
@@ -29,7 +29,7 @@
         <h1>Know your project is ready <span>before production does.</span></h1>
         <p class="hero-lede">EdgeRelease checks drawings, revisions, sheet-metal flat patterns and critical properties before you publish. Then it builds a clean PDF / DXF / STEP / BOM release pack in one flow.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="app.html">Try the interactive prototype</a>
+          <a class="btn btn-primary prototype-link" href="app.html">Try the interactive prototype</a>
           <a class="btn btn-secondary" href="#pricing">Join the beta</a>
         </div>
         <div class="trust-row">
@@ -104,7 +104,7 @@
           <div class="flow-arrow">→</div>
           <div class="flow-step"><strong>4</strong><div><b>Generate release</b><span>Publish the complete manufacturing package.</span></div></div>
         </div>
-        <div class="demo-cta"><a class="btn btn-primary" href="app.html">Open interactive product mockup</a></div>
+        <div class="demo-cta"><a class="btn btn-primary prototype-link" href="app.html">Open interactive product mockup</a></div>
       </div>
     </section>
 
@@ -139,22 +139,24 @@
             <li>✓ Founding-user pricing when the product launches</li>
           </ul>
         </div>
-        <form class="beta-card" id="betaForm">
-          <h3>Join the beta list</h3>
-          <label>Name<input required name="name" placeholder="Your name" /></label>
-          <label>Work email<input required type="email" name="email" placeholder="you@company.com" /></label>
-          <label>Team size<select name="team"><option>1–2 designers</option><option>3–10 designers</option><option>11–30 designers</option><option>31+ designers</option></select></label>
-          <label>Biggest release pain<textarea name="pain" placeholder="What still takes too much manual checking before manufacturing?"></textarea></label>
-          <button class="btn btn-primary full" type="submit">Request beta access</button>
-          <div class="form-note" id="formNote">Prototype form — no data is transmitted yet.</div>
-        </form>
+        <div class="beta-card">
+          <h3>Apply for the founding beta</h3>
+          <p>Three short questions help us prioritize teams with real manufacturing-release pain.</p>
+          <ul class="beta-list">
+            <li>Work email</li>
+            <li>Mechanical design team size</li>
+            <li>Your biggest Solid Edge release pain</li>
+          </ul>
+          <a class="btn btn-primary full" id="betaApplyBtn" href="https://eu.posthog.com/external_surveys/01a069c5-b4dc-0000-56ff-61232daf492e" target="_blank" rel="noopener">Request beta access</a>
+          <div class="form-note">The application is handled securely by PostHog. No CAD files, drawings or project data are uploaded.</div>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="footer shell">
     <div class="brand"><span class="brand-mark">ER</span><span>EdgeRelease</span></div>
-    <span>Solid Edge manufacturing release QA · Concept prototype</span>
+    <span>Solid Edge manufacturing release QA · Validation prototype</span>
   </footer>
 
   <script src="script.js"></script>
