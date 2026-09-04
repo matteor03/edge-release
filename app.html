@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>EdgeRelease Prototype</title>
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="prototype-refinements.css" />
 </head>
 <body class="app-body">
   <div class="app-shell">
@@ -42,11 +43,11 @@
         <div class="panel">
           <div class="panel-head"><div><h2>Preflight checks</h2><p>Manufacturing release rules for the active assembly.</p></div><span class="last-run" id="lastRun">Last scan · 09:42</span></div>
           <div class="qa-table" id="qaTable">
-            <div class="qa-row" data-type="drawing" data-state="bad"><div class="status-icon bad">×</div><div><b>Missing drawings</b><span>Components requiring Draft documentation</span></div><strong>2 issues</strong><button data-action="inspect">Inspect</button></div>
-            <div class="qa-row" data-type="views" data-state="ok"><div class="status-icon ok">✓</div><div><b>Drawing views current</b><span>Model-linked views checked against latest geometry</span></div><strong>73 / 73</strong><button data-action="inspect">Details</button></div>
-            <div class="qa-row" data-type="flat" data-state="warn"><div class="status-icon warn">!</div><div><b>Flat pattern readiness</b><span>Sheet-metal parts ready for DXF publishing</span></div><strong>3 warnings</strong><button data-action="inspect">Inspect</button></div>
-            <div class="qa-row" data-type="props" data-state="ok"><div class="status-icon ok">✓</div><div><b>Required properties</b><span>Part Number, Description, Material</span></div><strong>186 / 186</strong><button data-action="inspect">Details</button></div>
-            <div class="qa-row" data-type="revision" data-state="bad"><div class="status-icon bad">×</div><div><b>Revision consistency</b><span>Model, Draft and release naming alignment</span></div><strong>1 mismatch</strong><button data-action="inspect">Inspect</button></div>
+            <div class="qa-row" data-type="drawing" data-state="bad"><div class="status-icon bad">×</div><div><b>Missing drawings</b><span>Components requiring Draft documentation</span></div><strong>2 issues</strong><button data-action="inspect" data-check="Missing drawings">Inspect</button></div>
+            <div class="qa-row" data-type="views" data-state="ok"><div class="status-icon ok">✓</div><div><b>Drawing views current</b><span>Model-linked views checked against latest geometry</span></div><strong>73 / 73</strong><button data-action="inspect" data-check="Drawing views current">Details</button></div>
+            <div class="qa-row" data-type="flat" data-state="warn"><div class="status-icon warn">!</div><div><b>Flat pattern readiness</b><span>Sheet-metal parts ready for DXF publishing</span></div><strong>3 warnings</strong><button data-action="inspect" data-check="Flat pattern readiness">Inspect</button></div>
+            <div class="qa-row" data-type="props" data-state="ok"><div class="status-icon ok">✓</div><div><b>Required properties</b><span>Part Number, Description, Material</span></div><strong>186 / 186</strong><button data-action="inspect" data-check="Required properties">Details</button></div>
+            <div class="qa-row" data-type="revision" data-state="bad"><div class="status-icon bad">×</div><div><b>Revision consistency</b><span>Model, Draft and release naming alignment</span></div><strong>1 mismatch</strong><button data-action="inspect" data-check="Revision consistency">Inspect</button></div>
           </div>
         </div>
       </section>
@@ -55,12 +56,12 @@
         <div class="panel">
           <div class="panel-head"><div><h2>Open issues</h2><p>Blocking errors and warnings found during preflight.</p></div><button class="btn btn-secondary btn-small" id="fixAllBtn">Simulate fixes</button></div>
           <div class="issues-list" id="issuesList">
-            <article class="issue blocking"><span>BLOCKING</span><div><b>BRACKET_1042.psm — missing drawing</b><p>No associated .dft was found for a manufactured sheet-metal part.</p></div><button>Open file</button></article>
-            <article class="issue blocking"><span>BLOCKING</span><div><b>GUARD_2047.psm — missing drawing</b><p>No associated .dft was found for a manufactured sheet-metal part.</p></div><button>Open file</button></article>
-            <article class="issue blocking"><span>BLOCKING</span><div><b>BASEFRAME_001.par — revision mismatch</b><p>Model revision C does not match drawing revision B.</p></div><button>Compare</button></article>
-            <article class="issue warning"><span>WARNING</span><div><b>COVER_311.psm — flat pattern may be stale</b><p>Part geometry was modified after the current flat pattern was generated.</p></div><button>Open flat</button></article>
-            <article class="issue warning"><span>WARNING</span><div><b>PLATE_122.psm — bend layer rule</b><p>DXF profile contains a bend-line layer that is excluded by the active release rule.</p></div><button>Review</button></article>
-            <article class="issue warning"><span>WARNING</span><div><b>DOOR_018.psm — flat pattern orientation</b><p>Orientation differs from the preferred company release rule.</p></div><button>Review</button></article>
+            <article class="issue blocking" data-file="BRACKET_1042.psm" data-issue="Missing drawing"><span>BLOCKING</span><div><b>BRACKET_1042.psm — missing drawing</b><p>No associated .dft was found for a manufactured sheet-metal part.</p></div><button data-issue-action="open-file">Open file</button></article>
+            <article class="issue blocking" data-file="GUARD_2047.psm" data-issue="Missing drawing"><span>BLOCKING</span><div><b>GUARD_2047.psm — missing drawing</b><p>No associated .dft was found for a manufactured sheet-metal part.</p></div><button data-issue-action="open-file">Open file</button></article>
+            <article class="issue blocking" data-file="BASEFRAME_001.par" data-issue="Revision mismatch"><span>BLOCKING</span><div><b>BASEFRAME_001.par — revision mismatch</b><p>Model revision C does not match drawing revision B.</p></div><button data-issue-action="compare">Compare</button></article>
+            <article class="issue warning" data-file="COVER_311.psm" data-issue="Flat pattern may be stale"><span>WARNING</span><div><b>COVER_311.psm — flat pattern may be stale</b><p>Part geometry was modified after the current flat pattern was generated.</p></div><button data-issue-action="open-flat">Open flat</button></article>
+            <article class="issue warning" data-file="PLATE_122.psm" data-issue="Bend layer rule"><span>WARNING</span><div><b>PLATE_122.psm — bend layer rule</b><p>DXF profile contains a bend-line layer that is excluded by the active release rule.</p></div><button data-issue-action="review">Review</button></article>
+            <article class="issue warning" data-file="DOOR_018.psm" data-issue="Flat pattern orientation"><span>WARNING</span><div><b>DOOR_018.psm — flat pattern orientation</b><p>Orientation differs from the preferred company release rule.</p></div><button data-issue-action="review">Review</button></article>
           </div>
         </div>
       </section>
@@ -91,10 +92,10 @@
         <div class="panel">
           <div class="panel-head"><div><h2>Company rules</h2><p>Prototype of configurable release requirements.</p></div><span class="tag">Beta roadmap</span></div>
           <div class="rules-grid">
-            <article><b>Required properties</b><p>Part Number · Description · Material · Revision</p><button>Edit</button></article>
-            <article><b>Drawing requirement</b><p>Manufactured parts require an associated .dft</p><button>Edit</button></article>
-            <article><b>Release naming</b><p>{PartNumber}_{Revision}.{ext}</p><button>Edit</button></article>
-            <article><b>Sheet-metal DXF</b><p>Remove bend layer · Use flat pattern · mm units</p><button>Edit</button></article>
+            <article data-rule="Required properties" data-rule-kind="text"><b>Required properties</b><p data-rule-value>Part Number · Description · Material · Revision</p><button data-rule-edit>Edit</button></article>
+            <article data-rule="Drawing requirement" data-rule-kind="select"><b>Drawing requirement</b><p data-rule-value>Manufactured parts require an associated .dft</p><button data-rule-edit>Edit</button></article>
+            <article data-rule="Release naming" data-rule-kind="text"><b>Release naming</b><p data-rule-value>{PartNumber}_{Revision}.{ext}</p><button data-rule-edit>Edit</button></article>
+            <article data-rule="Sheet-metal DXF" data-rule-kind="text"><b>Sheet-metal DXF</b><p data-rule-value>Remove bend layer · Use flat pattern · mm units</p><button data-rule-edit>Edit</button></article>
           </div>
         </div>
       </section>
@@ -102,6 +103,18 @@
   </div>
 
   <div class="toast" id="toast"></div>
+
+  <div class="prototype-modal-backdrop" id="prototypeModal" aria-hidden="true">
+    <div class="prototype-modal" role="dialog" aria-modal="true" aria-labelledby="prototypeModalTitle">
+      <div class="prototype-modal-head">
+        <div><small id="prototypeModalEyebrow">PROTOTYPE ACTION</small><h3 id="prototypeModalTitle">EdgeRelease</h3></div>
+        <button class="prototype-modal-close" id="prototypeModalClose" aria-label="Close">×</button>
+      </div>
+      <div class="prototype-modal-body" id="prototypeModalBody"></div>
+      <div class="prototype-modal-actions" id="prototypeModalActions"></div>
+    </div>
+  </div>
+
   <script src="app.js"></script>
 </body>
 </html>
