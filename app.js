@@ -17,8 +17,7 @@ function capture(event,properties={}){
     body:JSON.stringify({
       api_key:POSTHOG_TOKEN,
       event,
-      distinct_id:edgeReleaseDistinctId(),
-      properties:{$current_url:location.href,page:'prototype',...properties}
+      properties:{distinct_id:edgeReleaseDistinctId(),$process_person_profile:false,$current_url:location.href,page:'prototype',...properties}
     }),
     keepalive:true
   }).catch(()=>{});
